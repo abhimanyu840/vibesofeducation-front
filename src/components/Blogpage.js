@@ -9,9 +9,8 @@ const Blogpage = () => {
     const { slug } = useParams();
     useEffect(() => {
         getBlogsslug(slug)
-        // eslint-disable-next-line
-    }, [])
-    { document.title = `${blogi.title} - Vibes Of Education` }
+    })
+    document.title = `${blogi.title} - Vibes Of Education`
 
     return (
         <div className='min-h-screen'>

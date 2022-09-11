@@ -28,7 +28,7 @@ const Coursepage = () => {
 
   }
   const ref = useRef()
-  { document.title = `${coursei.videotitle} - Vibes Of Education` }
+  document.title = `${coursei.videotitle} - Vibes Of Education`
 
   return (
     <>
