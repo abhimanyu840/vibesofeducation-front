@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="text-center m-auto container min-h-screen overflow-hidden" onLoad={token && handleAdmin} >
+      <div className="text-center m-auto container min-h-screen overflow-hidden" onLoad={localStorage.isadmin && handleAdmin} >
         <div className="animate__animated animate__backInUp">
         <img src={icon} className="m-auto my-2" style={{ "width": "7rem" }} alt={"course thumbnail"} />
         <h1 className='text-center text-3xl font-extrabold font-baloo'>Welcome To <span className="text-green-600">Vibes Of Education</span></h1>
