@@ -12,7 +12,7 @@ const Courses = () => {
         getCourse(category)
         // eslint-disable-next-line
     }, [])
-    {document.title = `${category.toUpperCase()} - Vibes Of Education`}
+    document.title = `${category.toUpperCase()} - Vibes Of Education`
 
 
     return (
