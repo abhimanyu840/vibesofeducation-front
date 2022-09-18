@@ -11,7 +11,7 @@ const Signup = () => {
     e.preventDefault();
     const { name, email, password, cpassword } = credentials;
     if (password === cpassword) {
-      const response = await fetch(`https://vibesofeducation.herokuapp.com/api/auth/createuser`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/auth/createuser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

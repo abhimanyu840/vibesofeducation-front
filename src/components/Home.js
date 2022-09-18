@@ -10,7 +10,7 @@ const Home = () => {
   const isAdmin = localStorage.isadmin
 
   const handleAdmin = async () => {
-    const response = await fetch(`https://vibesofeducation.herokuapp.com/api/auth/getuser`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/auth/getuser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

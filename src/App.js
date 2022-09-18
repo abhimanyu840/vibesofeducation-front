@@ -22,6 +22,8 @@ import { useLocation } from 'react-router-dom';
 function App() {
   const [progress, setProgress] = useState(0)
 
+
+
   const location = useLocation();
   useEffect(() => {
     setProgress(10)
@@ -47,7 +49,6 @@ function App() {
           <LoadingBar
             color='#f11946'
             progress={progress}
-            waitingTime={400}
             onLoaderFinished={() => setProgress(0)}
           />
           <Navbar />

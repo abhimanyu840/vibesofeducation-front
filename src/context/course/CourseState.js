@@ -4,8 +4,8 @@ import { useState } from "react";
 
 const CourseState = (props) => {
     // const host = "http://localhost:5000"
-    // const host = `${process.env.REACT_APP_BACKEND_HOST}`
-    const host = "https://vibesofeducation.herokuapp.com"
+    const host = `${process.env.REACT_APP_BACKEND_HOST}`
+    // const host = "https://vibesofeducation.herokuapp.com"
     const courseInitial = []
     const [course, setCourse] = useState(courseInitial)
     const [coursei, setCourseslug] = useState(courseInitial)

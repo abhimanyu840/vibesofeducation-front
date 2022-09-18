@@ -5,8 +5,8 @@ import React from 'react'
 
 
 const BlogState = (props) => {
-    // const host = process.env.REACT_APP_BACKEND_HOST
-    const host = "https://vibesofeducation.herokuapp.com"
+    const host = process.env.REACT_APP_BACKEND_HOST
+    // const host = "https://vibesofeducation.herokuapp.com"
     // const host = "http://localhost:5000"
     const blogsInitial = []
     const [blogs, setBlogs] = useState(blogsInitial)

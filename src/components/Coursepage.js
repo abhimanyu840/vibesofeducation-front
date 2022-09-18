@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { BsPlusCircle } from 'react-icons/bs';
 import { useParams } from 'react-router-dom';
 import Title from './Title';
-
 const Coursepage = () => {
 
   const context = useContext(courseContext);
@@ -40,13 +39,14 @@ const Coursepage = () => {
             </div> */}
           <div className='w-full md:w-3/5 lg:w-3/4'>
             <div className="aspect-w-16 aspect-h-9">
-              <iframe src={`https://www.youtube.com/embed/${coursei.videoid}`} frameBorder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              <iframe src={`https://www.youtube.com/embed/${coursei.videoid}`} frameBorder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="this is title" allowFullScreen></iframe>
             </div>
           </div>
           <div onClick={toggleTitle} className="text-xl my-2 mx-auto md:invisible md:hidden">
             <BsPlusCircle /></div>
           <div ref={ref} onClick={toggleTitle} className="hidden flex-wrap md:flex w-full md:w-2/5 lg:w-1/4 px-2 overflow-y-scroll h-[40vh] md:max-h-[75vh]">
-            <Title key={coursei.slug} coursetitle={coursei.coursetitle} />
+          
+              <Title key={coursei.slug} coursetitle={coursei.coursetitle} />
             {/* {Object.keys(courseti).map((item) => { */}
             {/*  return <Titleitem key={courseti[item].slug} course={courseti[item]}/> */}
             {/* return */}
