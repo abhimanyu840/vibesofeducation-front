@@ -14,7 +14,8 @@ const Coursepage = () => {
   useEffect(() => {
     clearCourseData();
     getCourseslug(slug);
-  }, [slug, clearCourseData, getCourseslug]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slug]);
 
   useEffect(() => {
     document.title = `${coursei?.videotitle || ''} - Vibes Of Education`;
