@@ -6,10 +6,15 @@ const CourseState = (props) => {
     // const host = "http://localhost:5000"
     const host = `${process.env.REACT_APP_BACKEND_HOST}`
     // const host = "https://vibesofeducation.herokuapp.com"
-    const [course, setCourse] = useState([])
-    const [coursei, setCourseslug] = useState([])
-    const [courseti, setCoursetitle] = useState([])
-    const [allcourse, setAllCourse] = useState([])
+    const [course, setCourse] = useState([]);
+    const [coursei, setCourseslug] = useState(null);
+    const [courseti, setCoursetitle] = useState(null);
+    const [allcourse, setAllCourse] = useState([]);
+
+    const clearCourseData = () => {
+        setCourseslug(null);
+        setCoursetitle(null);
+    };
 
     // Get course from category
     const getCourse = async (category) => {
@@ -116,7 +121,7 @@ const CourseState = (props) => {
     }
 
     return (
-        <CourseContext.Provider value={{ course, coursei, allcourse, courseti, editCourse, delCourse, addCourse, getCoursetitle, getAllCourse, getCourse, getCourseslug }}>
+        <CourseContext.Provider value={{ course, coursei, allcourse, courseti, editCourse, delCourse, addCourse, getCoursetitle, getAllCourse, getCourse, getCourseslug, clearCourseData }}>
             {props.children}
         </CourseContext.Provider>
     )
