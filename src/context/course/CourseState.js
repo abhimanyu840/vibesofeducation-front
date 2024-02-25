@@ -6,11 +6,10 @@ const CourseState = (props) => {
     // const host = "http://localhost:5000"
     const host = `${process.env.REACT_APP_BACKEND_HOST}`
     // const host = "https://vibesofeducation.herokuapp.com"
-    const courseInitial = []
-    const [course, setCourse] = useState(courseInitial)
-    const [coursei, setCourseslug] = useState(courseInitial)
-    const [courseti, setCoursetitle] = useState(courseInitial)
-    const [allcourse, setAllCourse] = useState(courseInitial)
+    const [course, setCourse] = useState([])
+    const [coursei, setCourseslug] = useState([])
+    const [courseti, setCoursetitle] = useState([])
+    const [allcourse, setAllCourse] = useState([])
 
     // Get course from category
     const getCourse = async (category) => {
@@ -102,16 +101,16 @@ const CourseState = (props) => {
         let newCourse = JSON.parse(JSON.stringify(course))
         // Logic to edit in client
         for (let index = 0; index < newCourse.length; index++) {
-                newCourse[index].coursetitle = coursetitle;
-                newCourse[index].coursedescription = coursedescription;
-                newCourse[index].slug = slug;
-                newCourse[index].videoid = videoid;
-                newCourse[index].videotitle = videotitle;
-                newCourse[index].texttutorial = texttutorial;
-                newCourse[index].downloads = downloads;
-                newCourse[index].category = category;
-                newCourse[index].image = image;
-                break;
+            newCourse[index].coursetitle = coursetitle;
+            newCourse[index].coursedescription = coursedescription;
+            newCourse[index].slug = slug;
+            newCourse[index].videoid = videoid;
+            newCourse[index].videotitle = videotitle;
+            newCourse[index].texttutorial = texttutorial;
+            newCourse[index].downloads = downloads;
+            newCourse[index].category = category;
+            newCourse[index].image = image;
+            break;
         }
         setCourse(newCourse);
     }
