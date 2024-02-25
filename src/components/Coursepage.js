@@ -14,7 +14,7 @@ const Coursepage = () => {
   useEffect(() => {
     clearCourseData();
     getCourseslug(slug);
-  }, [slug]);
+  }, [slug, clearCourseData, getCourseslug]);
 
   useEffect(() => {
     document.title = `${coursei?.videotitle || ''} - Vibes Of Education`;
