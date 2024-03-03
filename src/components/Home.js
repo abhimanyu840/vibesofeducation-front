@@ -13,6 +13,7 @@ const Home = ({ setProgress }) => {
   // const token = localStorage.token
   useEffect(() => {
     setToken(localStorage.token);
+    // eslint-disable-next-line
   }, [])
 
   // const isAdmin = localStorage.isadmin
