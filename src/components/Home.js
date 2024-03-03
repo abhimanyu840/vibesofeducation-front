@@ -1,33 +1,29 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import adminContext from '../context/admin/adminContext';
 import { Link } from "react-router-dom";
 import icon from "../iconvoe.png"
 
 
 
-const Home = () => {
-  document.title = 'Home - Vibes Of Education'
-  const token = localStorage.token
-  const isAdmin = localStorage.isadmin
+const Home = ({ setProgress }) => {
 
-  const handleAdmin = async () => {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/auth/getuser`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'auth-token': token,
-      },
-    });
-    const json = await response.json()
-    if (json.isadmin) {
-      localStorage.setItem('isadmin', json.isadmin)
-    }
-  }
+  const context = useContext(adminContext)
+  const { isAdmin, setToken } = context;
+  document.title = 'Home - Vibes Of Education'
+  // const token = localStorage.token
+  useEffect(() => {
+    setToken(localStorage.token);
+  }, [])
+
+  // const isAdmin = localStorage.isadmin
+
+
 
 
 
   return (
     <>
-      <div className="text-center m-auto container min-h-screen overflow-hidden" onLoad={isAdmin && handleAdmin} >
+      <div className="text-center m-auto container min-h-screen overflow-hidden">
         <div className="animate__animated animate__backInUp">
           <img src={icon} className="m-auto my-2" style={{ "width": "7rem" }} alt={"course thumbnail"} />
           <h1 className='text-center text-3xl font-extrabold font-baloo'>Welcome To <span className="text-green-600">Vibes Of Education</span></h1>
@@ -77,7 +73,8 @@ const Home = () => {
           </div>
           <hr />
           <div>
-            {localStorage.isadmin && <Link to="/allcourse" className=' mx-2'><button className="text-white bg-violet-800 border-0 py-2 px-6 focus:outline-none hover:bg-violet-500 rounded-md text-lg flex mx-auto my-3 font-ubuntu">Open Dashboard</button></Link>}
+            {isAdmin && <Link to="/allcourse" className=' mx-2'><button className="text-white bg-violet-800 border-0 py-2 px-6 focus:outline-none hover:bg-violet-500 rounded-md text-lg flex mx-auto my-3 font-ubuntu">Open Dashboard</button></Link>}
+            {console.log(isAdmin)}
           </div>
         </div>
       </div>

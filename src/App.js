@@ -18,12 +18,17 @@ import Allcourse from './components/Allcourse';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { useLocation } from 'react-router-dom';
+import AdminState from './context/admin/AdminState';
 
 function App() {
+
+  // const context = useContext(adminContext)
+  // const { isAdmin, setToken } = context
+  // useEffect(() => {
+  //   setToken(localStorage.token);
+  // }, [])
+
   const [progress, setProgress] = useState(0)
-
-
-
   const location = useLocation();
   useEffect(() => {
     setProgress(10)
@@ -46,28 +51,32 @@ function App() {
     <>
       <CourseState>
         <BlogState>
-          <LoadingBar
-            color='#f11946'
-            progress={progress}
-            onLoaderFinished={() => setProgress(0)}
-          />
-          <Navbar />
+          <AdminState>
+            <LoadingBar
+              color='#f11946'
+              progress={progress}
+              onLoaderFinished={() => setProgress(0)}
+            />
+            <Navbar />
 
-          <ToastContainer />
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/blog" element={<Blogs />} />
-              <Route path="/blogpage/:slug" element={<Blogpage />} />
-              <Route path="/courses/:category" element={<><Courses  /></>} />
-              <Route path="/coursepage/:slug" element={<><Coursepage /></>} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/uploadcourse" element={<><Sidebar /><Uploadcourse /></>} />
-              <Route path="/allcourse" element={<><Sidebar /><Allcourse /></>} />
-            </Routes>
-          </div>
-          <Footer />
+            <ToastContainer />
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/blog" element={<Blogs />} />
+                <Route path="/blogpage/:slug" element={<Blogpage />} />
+                <Route path="/courses/:category" element={<><Courses /></>} />
+                <Route path="/coursepage/:slug" element={<><Coursepage /></>} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                {/* {isAdmin && <Route path="/uploadcourse" element={<><Sidebar /><Uploadcourse /></>} />}
+                {isAdmin && <Route path="/allcourse" element={<><Sidebar /><Allcourse /></>} />} */}
+                <Route path="/uploadcourse" element={<><Sidebar /><Uploadcourse /></>} />
+                <Route path="/allcourse" element={<><Sidebar /><Allcourse /></>} />
+              </Routes>
+            </div>
+            <Footer />
+          </AdminState>
         </BlogState>
       </CourseState>
     </>

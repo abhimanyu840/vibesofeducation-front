@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { BsPlusCircle } from 'react-icons/bs';
 import { useParams } from 'react-router-dom';
 import Title from './Title';
+
 const Coursepage = () => {
 
   const context = useContext(courseContext);
