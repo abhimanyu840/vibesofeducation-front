@@ -5,7 +5,7 @@ import icon from "../iconvoe.png"
 
 
 
-const Home = ({ setProgress }) => {
+const Home = () => {
 
   const context = useContext(adminContext)
   const { isAdmin, setToken } = context;
